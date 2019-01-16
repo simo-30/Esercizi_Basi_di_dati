@@ -1,0 +1,12 @@
+La query:
+
+select distinct p1.giocatore
+from pagelle p1
+where 7 <= all(select voto from pagelle p2 where p2.giocatore = p1.giocatore) and
+	  not exists (select p3.giocatore
+				  from pagelle p3
+				  where p3.giornata = p1.giornata and p3.giornale = p1.giornale and p3.voto < p1.voto)
+
+calcola tutti i giocatori diversi che hanno ottenuto tutti voti maggiori di 7,
+e che non abbiano avuto nessun altro giocatore che nella stessa giornata
+e dallo stesso giornale abbia ottenuto un voto maggiore.
