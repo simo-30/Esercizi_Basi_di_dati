@@ -10,3 +10,6 @@ where 7 <= all(select voto from pagelle p2 where p2.giocatore = p1.giocatore) an
 calcola tutti i giocatori diversi che hanno ottenuto tutti voti maggiori di 7,
 e che non abbiano avuto nessun altro giocatore che nella stessa giornata
 e dallo stesso giornale abbia ottenuto un voto maggiore.
+
+Come soluzione penso sia giusta, ma sono aperto ad ogni discussione in merito,
+l'email la avete (su readme), potete scrivermi lì
