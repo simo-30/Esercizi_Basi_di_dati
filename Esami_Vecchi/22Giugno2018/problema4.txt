@@ -1,0 +1,19 @@
+La seguente query
+
+select t.gc, t.gn, t.me
+from (select p1.giocatore as gc, p1.giornata as gn, avg(p1.voto) as me
+	  from pagelle p1
+	  group by p1.giocatore) t
+where t.me >= all(select avg(p2.voto)
+				  from pagelle p2
+				  where p2.giornata = t.gn
+				  group by p2.giocatore)
+				  
+applicata alla relazione del problema 3 (pagelle(giornale,giocatore,giornata,voto),
+con giornale,giocatore e giornata che compongono la chiave primaria),
+calcola il giocatore che per ogni giornata ha avuto la media dei voti di tutti
+i giornali maggiore di tutti gli altri giocatori.
+
+
+
+--- se avete dei dubbi o pensate sia errate vi prego di farmelo sapere ---
