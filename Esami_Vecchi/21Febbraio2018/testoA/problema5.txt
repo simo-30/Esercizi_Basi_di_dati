@@ -1,0 +1,12 @@
+Data la base di dati in figura e la query
+
+select t1.A, t1.B, t2.C, t2.D
+from (select A,B from R) t1, (select C,D from R) t2
+where t1.B > t2.C and t2.D < t1.A and t1.A not in (select D from R)
+
+il risultato calcolato da questa è la seguente tabella
+
+|	A	|	B	|	C	|	D	|
+---------------------------------
+|	90	|	8	|	4	|	10	|
+|	90	|	8	|	5	|	20	|
