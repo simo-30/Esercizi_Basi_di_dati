@@ -1,0 +1,11 @@
+Considerando la base di dati data in figura, la query 
+
+select t1.A, t1.B, t2.C, t2.D
+from (select A,B from R) t1, (select C,D from R) t2
+where t1.B = t2.C and t2.D < t1.A
+
+da come risultato la prima istanza della base di dati, ossia:
+
+|  A  |  B  |  C  |  D  |
+-------------------------
+|  30 |  5  |  5  |  10 |
